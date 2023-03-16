@@ -10,7 +10,7 @@ variable "location" {
 
 variable "skutier" {
   type = string
-  default = "standard"
+  default = "Standard"
 }
 
 variable "service_provider_name" {
