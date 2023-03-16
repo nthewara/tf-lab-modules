@@ -10,6 +10,9 @@ output "gwsubnetid" {
 output "fwsubnetid" {
   value = azurerm_subnet.AzureFirewallSubnet.*.id
 }
-output "appsubnet" {
-  value = azurerm_subnet.spoke_app
+output "appsubnetid" {
+  value = azurerm_subnet.spoke_app.*.id
+}
+output "hubnvasubnetid" {
+  value = azurerm_subnet.hub_nva.*.id
 }
