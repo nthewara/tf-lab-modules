@@ -69,3 +69,37 @@ resource "azurerm_subnet" "spoke_appgw" {
   address_prefixes     = ["${var.address_space}.128/26"]
   resource_group_name  = var.resource_group_name
 }
+
+resource "azurerm_network_security_group" "nsg" {
+  name                = "${var.name}-nsg"
+  resource_group_name = var.resource_group_name
+  location            = var.location
+  security_rule {
+    name                       = "SSH-In"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = var.myip
+    destination_address_prefix = "*"
+  }
+}
+
+resource "azurerm_subnet_network_security_group_association" "nsg-spoke-app" {
+  count               = var.type == "spoke" ? 1 : 0
+  network_security_group_id = azurerm_network_security_group.nsg.id
+  subnet_id                 = azurerm_subnet.spoke_app[0].id
+}
+resource "azurerm_subnet_network_security_group_association" "nsg-spoke-data" {
+  count               = var.type == "spoke" ? 1 : 0
+  network_security_group_id = azurerm_network_security_group.nsg.id
+  subnet_id                 = azurerm_subnet.spoke_data[0].id
+}
+
+resource "azurerm_subnet_network_security_group_association" "nsg-hub-nva" {
+   count               = var.type != "spoke" ? 1 : 0
+  network_security_group_id = azurerm_network_security_group.nsg.id
+  subnet_id                 = azurerm_subnet.hub_nva[0].id
+}
