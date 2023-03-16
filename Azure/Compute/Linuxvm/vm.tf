@@ -45,6 +45,10 @@ resource "azurerm_linux_virtual_machine" "vm" {
     storage_account_type = "Standard_LRS"
     caching              = "ReadWrite"
   }
+
+  boot_diagnostics {
+    storage_account_uri = null
+  }
 }
 resource "azurerm_virtual_machine_extension" "vm1-watcher" {
   name                 = "${var.name}-vm-watext"
