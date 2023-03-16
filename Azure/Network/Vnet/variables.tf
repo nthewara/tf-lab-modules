@@ -7,9 +7,15 @@ variable "resource_group_name" {
 variable "location" {
   type = string
 }
+
 variable "address_space" {
   type = string
 }
+
 variable "type" {
+  type = string
+}
+
+variable "myip" {
   type = string
 }
