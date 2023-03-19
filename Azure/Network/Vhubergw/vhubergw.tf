@@ -1,4 +1,4 @@
-resource "azurerm_express_route_gateway" "ergw1" {
+resource "azurerm_express_route_gateway" "ergw" {
   name                = var.name
   resource_group_name = var.resource_group_name
   location            = var.location
