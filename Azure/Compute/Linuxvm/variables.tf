@@ -20,10 +20,16 @@ variable "username" {
   type = string
 }
 
-variable "sshkey" {
+variable "password" {
   type = string
 }
 
+variable "sshkey" {
+  type = string
+}
+variable "publicip" {
+  type = bool
+}
 variable "vmimage" {
   type = object({
     publisher = string

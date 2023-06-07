@@ -1,4 +1,5 @@
 resource "azurerm_public_ip" "vmpip" {
+  count               = var.publicip ? 1 : 0
   name                = "${var.name}-pip"
   resource_group_name = var.resource_group_name
   location            = var.location
@@ -15,7 +16,7 @@ resource "azurerm_network_interface" "vmnic" {
     name                          = "ipconfig"
     subnet_id                     = var.subnetid
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id = azurerm_public_ip.vmpip.id
+    public_ip_address_id = var.publicip ? element(azurerm_public_ip.vmpip.*.id, 0) : null
   }
 }
 
@@ -26,6 +27,8 @@ resource "azurerm_linux_virtual_machine" "vm" {
   location            = var.location
   size                            = var.vmsku
   admin_username                  = var.username
+  admin_password                  = var.password
+  disable_password_authentication = false
   network_interface_ids = [
     azurerm_network_interface.vmnic.id,
   ]
