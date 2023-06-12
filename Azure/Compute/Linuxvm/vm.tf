@@ -11,6 +11,8 @@ resource "azurerm_network_interface" "vmnic" {
   name                = "${var.name}-nic"
   resource_group_name = var.resource_group_name
   location            = var.location
+  enable_ip_forwarding = true 
+  enable_accelerated_networking = var.accelnet
 
   ip_configuration {
     name                          = "ipconfig"

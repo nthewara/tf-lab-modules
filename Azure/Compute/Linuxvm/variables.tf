@@ -30,6 +30,11 @@ variable "sshkey" {
 variable "publicip" {
   type = bool
 }
+
+variable "accelnet" {
+  type = bool
+}
+
 variable "vmimage" {
   type = object({
     publisher = string
