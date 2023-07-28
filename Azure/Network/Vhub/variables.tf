@@ -17,3 +17,8 @@ variable "vwanid" {
 variable "address_prefix" {
   type = string
 }
+
+variable "hub_routing_preference" {
+  type = string
+  default = "ASPath"
+}

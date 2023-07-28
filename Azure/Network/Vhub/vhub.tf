@@ -4,4 +4,5 @@ resource "azurerm_virtual_hub" "vhub" {
   location            = var.location
   virtual_wan_id      = var.vwanid
   address_prefix      = "${var.address_prefix}.0/23"
+  hub_routing_preference = var.hub_routing_preference
 }
