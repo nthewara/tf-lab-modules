@@ -2,7 +2,7 @@ terraform {
   required_providers {
     megaport = {
       source = "megaport/megaport"
-      version = "0.2.5"
+      version = "0.2.10"
     }
   }
 }
