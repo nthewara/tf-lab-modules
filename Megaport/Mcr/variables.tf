@@ -1,6 +1,6 @@
 variable "mcrlocation" {
   type = string
-  default = "Equinix DC4"
+  default = "Equinix DA1"
 }
 
 variable "mcrname" {
