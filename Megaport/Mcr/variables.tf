@@ -3,6 +3,6 @@ variable "mcrlocation" {
   default = "Equinix DA1"
 }
 
-variable "mcrname" {
+variable "name" {
   type = string 
 }

@@ -11,7 +11,7 @@ data "megaport_location" "mcrlocation" {
   has_mcr = true
 }
 resource "megaport_mcr" "mcr" {
-  mcr_name    = var.mcrname
+  mcr_name    = var.name
   location_id = data.megaport_location.mcrlocation.id
   router {
     port_speed    = 1000
