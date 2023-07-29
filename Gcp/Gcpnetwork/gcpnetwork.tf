@@ -23,3 +23,15 @@ resource "google_compute_subnetwork" "gcpnetdc1sub3" {
   region        = var.region
   network       = google_compute_network.gcpnetdc1.id
 }
+
+resource "google_compute_firewall" "gcpnetdc1fw" {
+  name    = "${var.name}-fw1"
+  network = google_compute_network.gcpnetdc1.name
+
+  allow {
+    protocol = "all"
+  }
+
+  source_ranges = ["10.0.0.0/8","${var.myip}"]
+}
+

@@ -11,3 +11,7 @@ variable "subnet_addressspace" {
   type = string
   default = "10.150"
 }
+
+variable "myip" {
+  type = string
+}
