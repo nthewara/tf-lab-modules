@@ -6,6 +6,10 @@ output "subnetid1" {
   value = google_compute_subnetwork.gcpnetdc1sub1.id 
 }
 
+output "subnet1" {
+  value = google_compute_subnetwork.gcpnetdc1sub1
+}
+
 output "subnetid2" {
   value = google_compute_subnetwork.gcpnetdc1sub2.id 
 }
