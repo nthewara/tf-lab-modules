@@ -1,9 +1,6 @@
 variable "name" {
   type = string
 }
-variable "networkname" {
-  type = string
-}
 
 variable "region" {
   type = string
