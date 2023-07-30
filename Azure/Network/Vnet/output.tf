@@ -13,6 +13,11 @@ output "fwsubnetid" {
 output "appsubnetid" {
   value = azurerm_subnet.spoke_app.*.id
 }
+
+output "appgwsubnetid" {
+  value = azurerm_subnet.spoke_appgw.*.id
+}
+
 output "hubnvasubnetid" {
   value = azurerm_subnet.hub_nva.*.id
 }
