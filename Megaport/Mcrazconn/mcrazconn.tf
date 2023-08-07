@@ -20,8 +20,6 @@ resource megaport_azure_connection azercon1 {
   }
   csp_settings {
     service_key = var.ercircuit_servicekey
-    peerings {
-      private_peer = true
-    }
+    auto_create_private_peering   = true
   }
 }
