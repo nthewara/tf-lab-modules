@@ -23,7 +23,7 @@ resource megaport_azure_connection azercon1 {
     private_peering {
       peer_asn         = "64555"
       primary_subnet   = "169.254.120.129/30"
-      #secondary_subnet = "10.0.0.4/30"
+      secondary_subnet = "169.254.239.137/30"
       requested_vlan   = 450
     }
   }
