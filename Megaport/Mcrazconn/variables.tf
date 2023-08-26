@@ -7,11 +7,6 @@ variable "azvlan" {
   default = 495
 }
 
-variable "azvlan" {
-  type = number 
-  default = 495
-}
-
 variable "mcrasn" {
   type = number 
   default = 64555
