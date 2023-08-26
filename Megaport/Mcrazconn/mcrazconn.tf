@@ -21,10 +21,10 @@ resource megaport_azure_connection azercon1 {
   csp_settings {
     service_key = var.ercircuit_servicekey
     private_peering {
-      peer_asn         = "64555"
-      primary_subnet   = "169.254.120.129/30"
-      secondary_subnet = "169.254.239.137/30"
-      requested_vlan   = 450
+      peer_asn         = var.mcrasn
+      primary_subnet   = var.primary_subnet
+      secondary_subnet = var.secondary_subnet
+      requested_vlan   = var.azvlan
     }
   }
 }
