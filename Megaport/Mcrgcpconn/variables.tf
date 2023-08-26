@@ -10,3 +10,8 @@ variable "mcrid" {
 variable "pairing_key" {
   type = string
 }
+
+variable "vxcname" {
+  type = string
+  default = "GCP VXC" 
+}
