@@ -15,11 +15,16 @@ resource megaport_azure_connection azercon1 {
   }
 
   a_end {
-    requested_vlan = var.azvlan
+    requested_vlan = 0
     port_id = var.mcrid
   }
   csp_settings {
     service_key = var.ercircuit_servicekey
-    auto_create_private_peering   = true
+    private_peering {
+      peer_asn         = "64555"
+      primary_subnet   = "169.254.120.129/30"
+      #secondary_subnet = "10.0.0.4/30"
+      requested_vlan   = 450
+    }
   }
 }
